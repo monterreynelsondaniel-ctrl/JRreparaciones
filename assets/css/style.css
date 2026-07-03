@@ -1,0 +1,809 @@
+/* ==========================================================================
+   RESET & ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Componente Genérico: Botón de Acción (CTA) */
+.btn-cta {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================================================
+   MAIN HEADER (Centrado y Agrandado)
+   ========================================================================== */
+.main-header {
+    background-color: #d1d1d1 !important; /* Mantiene tu gris de contraste */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1rem; /* Aumentamos ligeramente el grosor del header */
+    display: flex;
+    justify-content: center; /* Centrado absoluto y limpio */
+    align-items: center;
+}
+
+/* Eliminamos la necesidad de spacers ficticios */
+.header-spacer {
+    display: none !important;
+}
+
+/* Caja de la marca centrada y robusta */
+.logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Nombre Principal (Agrandado) */
+.logo-main {
+    font-size: 3rem; /* Subió de 1.4rem a 2.2rem para que impacte */
+    font-weight: 900;  /* Más grueso y pesado */
+    color: var(--color-primary);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+/* La palabra REPARACIONES (o el span que tengas adentro) */
+.logo-main span {
+    color: var(--color-secondary);
+    font-weight: 900; /* Ultra negrita */
+    text-transform: uppercase; /* Fuerza el look corporativo */
+}
+
+/* El subtítulo de abajo (Agrandado y estilizado en proporción) */
+.logo-sub {
+    font-size: 0.8rem; /* Subió de 0.65rem a 0.9rem para que se lea claro */
+    font-weight: 800;
+    color: #333333; /* Un gris más oscuro para mejor lectura */
+    letter-spacing: 5px; /* Mantiene el espaciado elegante */
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* El botón viejo queda deshabilitado en el CSS */
+.btn-call-header {
+    display: none !important;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Restaurar navegación en pantallas grandes)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .logo strong {
+        font-size: 1.5rem; /* Crece el logo en PC */
+    }
+
+    /* En tablets y PC, sí mostramos los enlaces del menú */
+    .main-nav {
+        display: flex;
+        gap: 1.5rem;
+        margin-left: auto;
+        margin-right: 1.5rem;
+    }
+
+    .main-nav a {
+        font-weight: 500;
+        color: var(--color-dark);
+        transition: var(--transition-smooth);
+    }
+
+    .main-nav a:hover {
+        color: var(--color-primary);
+    }
+    
+    .btn-whatsapp-header {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   MODULE: HERO SECTION
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(34, 37, 42, 0.85), rgba(21,23,26,0.95)), url('../images/hero-bg.jpg') no-repeat center center/cover !important;
+    color: var(--color-white);
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-cta--hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    background-color: #25D366 !important; /* Verde oficial WhatsApp */
+    color: #ffffff !important; /* Texto blanco puro de alto contraste */
+    font-weight: 800; /* Ultra negrita para máxima lectura */
+    border-radius: 50px; /* Estilo píldora premium */
+    text-decoration: none;
+    text-transform: uppercase; /* En mayúsculas se ve mucho más directo */
+    letter-spacing: 0.5px;
+    
+    /* Sombra inicial verde traslúcida */
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+    
+    /* Enlazamos la animación de pulso y quitamos la variable para evitar fallas */
+    animation: pulse-whatsapp-hero 2s infinite ease-in-out;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.btn-cta--hero:hover {
+    background-color: #20ba59 !important; /* Verde un poco más oscuro al presionar */
+    transform: scale(1.05) !important; /* Crece sutilmente en lugar de solo subir */
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6) !important;
+}
+
+/* ==========================================================================
+   ANIMACIÓN DE PULSO DE ONDA (Efecto Titileo con Sombra)
+   ========================================================================== */
+@keyframes pulse-whatsapp-hero {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        transform: scale(1.03); /* Se infla un pelín de forma fluida */
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); /* Dispara la onda de sombra hacia afuera */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE CON TEXTO COMERCIAL & PULSO (Reparado)
+   ========================================================================== */
+.whatsapp-floating {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-color: #25D366 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+    z-index: 99999 !important;
+    text-decoration: none !important;
+    
+    /* Enlazamos el titileo infinito */
+    animation: pulse-whatsapp-float 2.5s infinite ease-in-out;
+    transition: transform 0.2s ease-in-out !important;
+}
+
+.whatsapp-floating svg {
+    width: 32px !important;
+    height: 32px !important;
+    fill: #ffffff !important;
+    flex-shrink: 0;
+}
+
+/* 🏷️ EL MENSAJE COMERCIAL (Tooltip estático elegante a la izquierda) */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px; /* Lo empuja a la izquierda del círculo verde */
+    background-color: #1a365d; /* Tu azul corporativo para que resalte del fondo gris */
+    color: #ffffff !important;
+    font-size: 0.80rem !important;
+    font-weight: 700 !important;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    pointer-events: none; /* No interfiere con los clics */
+}
+
+/* Pequeña flecha del cuadro de texto apuntando al botón */
+.whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #1a365d;
+}
+
+/* Hover suave */
+.whatsapp-floating:hover {
+    transform: scale(1.08) !important;
+    background-color: #20ba59 !important;
+}
+
+/* ==========================================================================
+   ANIMACIÓN DE TITILEO EXPANSIVO PARA EL BOTÓN FLOTANTE
+   ========================================================================== */
+@keyframes pulse-whatsapp-float {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* ==========================================================================
+   ANIMACIÓN DE TITILEO EXPANSIVO PARA EL BOTÓN FLOTANTE
+   ========================================================================== */
+@keyframes pulse-whatsapp-float {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+
+/* ==========================================================================
+   MODULE: SERVICES (Grid Modular - Reparado y Optimizado)
+   ========================================================================== */
+.services-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5rem 1rem; /* Más espacio arriba y abajo para que respire */
+}
+
+.services-section h2 {
+    text-align: center;
+    color: #1a365d; /* Tu azul oscuro corporativo */
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    font-weight: 800; /* Título imponente tipo empresa grande */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 2rem;
+}
+
+/* Tarjeta Base de Servicio */
+.service-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 5px solid #1a365d; /* Por defecto azul de la marca */
+    display: flex;
+    flex-direction: column;
+    
+    /* CAMBIO: Tiempos fijos y directos para asegurar que el hover reaccione */
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out !important;
+}
+
+/* ¡El HOVER que ahora sí va a responder! */
+.service-card:hover {
+    transform: translateY(-6px) !important; /* Levanta la tarjeta */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12) !important; /* Sombra más profunda */
+    border-top-color: #2a4365 !important; /* El borde superior se aclara sutilmente */
+    cursor: pointer;
+}
+
+/* Contenedor horizontal para las dos imágenes */
+.service-card__images-container {
+    display: flex;
+    height: 180px; 
+    width: 100%;
+    gap: 2px; 
+    background-color: #eee;
+    overflow: hidden;
+}
+
+/* Cada una de las dos imágenes mide el 50% */
+.service-card__image {
+    flex: 1; 
+    height: 100%;
+    background-color: #ddd; 
+    background-size: cover;
+    background-position: center;
+    
+    /* CAMBIO: Animación directa para zoom en las fotos al hacer hover */
+    transition: transform 0.3s ease-in-out !important;
+}
+
+/* Efecto premium: Las fotos hacen un leve zoom cuando pones el mouse en la tarjeta */
+.service-card:hover .service-card__image {
+    transform: scale(1.03);
+}
+
+.service-card__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.service-card__link {
+    font-weight: bold;
+    color: #1a365d; /* Texto en tu azul oscuro */
+    text-decoration: none;
+    align-self: flex-start;
+    
+    /* CAMBIO: Animación directa en la flecha */
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Al hacer hover en la tarjeta, el link se enciende y la flecha se desplaza */
+.service-card:hover .service-card__link {
+    color: #2a4365 !important;
+    transform: translateX(4px);
+}
+/* --- 1. Módulo: Calentadores --- */
+.service-card--calentadores { border-top-color: var(--color-calentadores); }
+.service-card--calentadores .service-card__link { color: var(--color-calentadores); }
+/* Fotos */
+.service-card--calentadores .service-card__image--1 { background-image: url('../images/calentadores/calentadores1.jpg'); }
+.service-card--calentadores .service-card__image--2 { background-image: url('../images/calentadores/calentadores2.jpg'); }
+
+
+/* --- 2. Módulo: Estufas --- */
+.service-card--estufas { border-top-color: var(--color-estufas); }
+.service-card--estufas .service-card__link { color: var(--color-estufas); }
+/* Fotos */
+.service-card--estufas .service-card__image--1 { background-image: url('../images/estufas/estufas1.jpg'); }
+.service-card--estufas .service-card__image--2 { background-image: url('../images/estufas/estufas2.jpg'); }
+
+
+/* --- 3. Módulo: Plomería --- */
+.service-card--plomeria { border-top-color: var(--color-plomeria); }
+.service-card--plomeria .service-card__link { color: var(--color-plomeria); }
+/* Fotos */
+.service-card--plomeria .service-card__image--1 { background-image: url('../images/plomeria/plomeria1.jpg'); }
+.service-card--plomeria .service-card__image--2 { background-image: url('../images/plomeria/plomeria2.jpg'); }
+
+
+/* --- 4. Módulo: Electricidad --- */
+.service-card--electricidad { border-top-color: var(--color-electricidad); }
+.service-card--electricidad .service-card__link { color: var(--color-electricidad); }
+/* Fotos */
+.service-card--electricidad .service-card__image--1 { background-image: url('../images/electricidad/electricidad1.jpg'); }
+.service-card--electricidad .service-card__image--2 { background-image: url('../images/electricidad/electricidad2.jpg'); }
+
+
+/* --- 5. Módulo: Red de Gas --- */
+.service-card--gas { border-top-color: #1a365d; } /* Color azul corporativo para mantener la armonía */
+.service-card--gas .service-card__link { color: #1a365d; }
+/* Fotos */
+.service-card--gas .service-card__image--1 { background-image: url('../images/gas/gas1.jpg'); }
+.service-card--gas .service-card__image--2 { background-image: url('../images/gas/gas2.jpg'); }
+
+/* ==========================================================================
+   MODULE: FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Responsivo para pantallas grandes)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas de PC */
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN SEO: OPTIMIZACIÓN TEXTO LARGO (CALENTADORES Y REDES DE GAS)
+   ========================================================================== */
+.seo-text-section {
+    background-color: #f8fafc; /* Un fondo gris/azul muy limpio para que resalte del fondo general */
+    padding: 4.5rem 1.5rem;
+    color: #334155;
+    line-height: 1.7; /* Espaciado entre líneas para que la lectura larga no canse el ojo */
+}
+
+.container-seo {
+    max-width: 850px; /* Ancho controlado para que las líneas de texto no se estiren al infinito */
+    margin: 0 auto;
+}
+
+.seo-text-section h2 {
+    font-size: 1.9rem;
+    color: #1a365d; /* Tu azul oscuro corporativo */
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.seo-long-paragraph p {
+    font-size: 1.05rem; /* Tamaño de letra ideal para bloques de texto informativos */
+    color: #475569;
+    text-align: justify; /* Justificado para mantener la simetría visual */
+    margin-bottom: 1.8rem; /* Separación limpia entre cada párrafo */
+}
+
+/* Resaltado de las palabras clave principales en el texto */
+.seo-long-paragraph p strong {
+    color: #1a365d; /* Mismo azul de tu marca para mantener la coherencia */
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   ADAPTACIÓN PARA PANTALLAS DE CELULARES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .seo-text-section {
+        padding: 3rem 1.2rem; /* Reduce el espacio arriba y abajo en pantallas chicas */
+    }
+    
+    .seo-text-section h2 {
+        font-size: 1.5rem; /* Achica un poco el título principal */
+        text-align: left; /* En celular la alineación a la izquierda se lee más natural */
+    }
+    
+    .seo-long-paragraph p {
+        font-size: 0.95rem;
+        text-align: left; /* Evita que el justificado deje espacios gigantescos entre palabras por la pantalla angosta */
+        margin-bottom: 1.4rem;
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN: MAPA DE COBERTURA
+   ========================================================================== */
+.coverage-section {
+    background-color: #ffffff; /* Fondo blanco para contrastar con el gris de la sección SEO */
+    padding: 4.5rem 1.5rem;
+}
+
+.container-coverage {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.coverage-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.coverage-header h2 {
+    font-size: 2rem;
+    color: #1a365d; /* Tu azul corporativo */
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+}
+
+.coverage-header p {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Caja contenedora en Grid (2 Columnas) */
+.coverage-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Contenedor del Mapa */
+.coverage-map {
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+/* Columna de Información */
+.coverage-info h3 {
+    font-size: 1.4rem;
+    color: #1a365d;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.coverage-info > p {
+    font-size: 1rem;
+    color: #475569;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+}
+
+/* Contenedor de Etiquetas (Badges) */
+.location-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.badge {
+    background-color: #f1f5f9;
+    color: #1a365d;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+/* Puntito verde decorativo dentro de cada etiqueta */
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #25D366; /* Verde WhatsApp activo */
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Caja interna de llamado a la acción final */
+.coverage-cta-box {
+    background-color: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #25D366;
+}
+
+.cta-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   ADAPTACIÓN PARA CELULARES
+   ========================================================================== */
+@media (max-width: 900px) {
+    .coverage-grid {
+        grid-template-columns: 1fr; /* Pasa a una sola columna en pantallas chicas */
+        gap: 2rem;
+    }
+    
+    .coverage-map {
+        height: 300px; /* Reducimos un poco el alto del mapa en celular */
+        order: 2; /* Mueve el mapa abajo de las etiquetas para priorizar la lectura */
+    }
+    
+    .coverage-info {
+        order: 1;
+    }
+    
+    .coverage-header h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN: RESEÑAS / TESTIMONIOS TEXTO LIMPIO
+   ========================================================================== */
+.reviews-section {
+    background-color: #f8fafc; /* Fondo gris/azul muy suave para contrastar con el blanco del mapa */
+    padding: 4.5rem 1.5rem;
+    text-align: center;
+}
+
+.container-reviews {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.reviews-section h2 {
+    font-size: 1.9rem;
+    color: #1a365d; /* Tu azul corporativo */
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.reviews-subtitle {
+    color: #64748b;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Grid dinámico para las 3 tarjetas */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Color dorado clásico de las estrellas de Google */
+.review-stars {
+    color: #f59e0b; 
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.review-author {
+    color: #1a365d;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 768px) {
+    .reviews-section {
+        padding: 3rem 1.2rem;
+    }
+    .reviews-section h2 {
+        font-size: 1.6rem;
+    }
+    .reviews-grid {
+        gap: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   LISTA DE BENEFICIOS CON CHULITO (HERO)
+   ========================================================================== */
+.hero-benefits {
+    list-style: none; /* Quita los puntos por defecto */
+    padding: 0;
+    margin: 0 auto 2.5rem auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espacio entre cada beneficio */
+    text-align: left; /* Alineación interna para que los chulitos queden parejos */
+}
+
+.hero-benefits li {
+    font-size: 1.15rem;
+    color: #e2e8f0; /* Blanco suave */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+/* Estilo para el chulito SVG */
+.check-icon {
+    width: 22px;
+    height: 22px;
+    color: #25D366; /* Tu verde llamativo de acción rápida */
+    flex-shrink: 0; /* Evita que el icono se deforme en pantallas chicas */
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 768px) {
+    .hero-benefits {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    .hero-benefits li {
+        font-size: 1rem;
+    }
+    .check-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
