@@ -428,40 +428,40 @@ a {
 .service-card--calentadores { border-top-color: var(--color-calentadores); }
 .service-card--calentadores .service-card__link { color: var(--color-calentadores); }
 /* Fotos */
-.service-card--calentadores .service-card__image--1 { background-image: url('../images/calentadores/calentadores1.jpg'); }
-.service-card--calentadores .service-card__image--2 { background-image: url('../images/calentadores/calentadores2.jpg'); }
+.service-card--calentadores .service-card__image--1 { background-image: url('../images/calentadores/calentador_antes.jpg'); }
+.service-card--calentadores .service-card__image--2 { background-image: url('../images/calentadores/calentador_despues.jpg'); }
 
 
 /* --- 2. Módulo: Estufas --- */
 .service-card--estufas { border-top-color: var(--color-estufas); }
 .service-card--estufas .service-card__link { color: var(--color-estufas); }
 /* Fotos */
-.service-card--estufas .service-card__image--1 { background-image: url('../images/estufas/estufas1.jpg'); }
-.service-card--estufas .service-card__image--2 { background-image: url('../images/estufas/estufas2.jpg'); }
+.service-card--estufas .service-card__image--1 { background-image: url('../images/estufas/estufa_antes.jpg'); }
+.service-card--estufas .service-card__image--2 { background-image: url('../images/estufas/estufa_despues.jpg'); }
 
 
 /* --- 3. Módulo: Plomería --- */
 .service-card--plomeria { border-top-color: var(--color-plomeria); }
 .service-card--plomeria .service-card__link { color: var(--color-plomeria); }
 /* Fotos */
-.service-card--plomeria .service-card__image--1 { background-image: url('../images/plomeria/plomeria1.jpg'); }
-.service-card--plomeria .service-card__image--2 { background-image: url('../images/plomeria/plomeria2.jpg'); }
+.service-card--plomeria .service-card__image--1 { background-image: url('../images/plomeria/plomeria_antes.png'); }
+.service-card--plomeria .service-card__image--2 { background-image: url('../images/plomeria/plomeria_despues.jpg'); }
 
 
 /* --- 4. Módulo: Electricidad --- */
 .service-card--electricidad { border-top-color: var(--color-electricidad); }
 .service-card--electricidad .service-card__link { color: var(--color-electricidad); }
 /* Fotos */
-.service-card--electricidad .service-card__image--1 { background-image: url('../images/electricidad/electricidad1.jpg'); }
-.service-card--electricidad .service-card__image--2 { background-image: url('../images/electricidad/electricidad2.jpg'); }
+.service-card--electricidad .service-card__image--1 { background-image: url('../images/electricidad/electricidad_antes.png'); }
+.service-card--electricidad .service-card__image--2 { background-image: url('../images/electricidad/electricidad_despues.png'); }
 
 
 /* --- 5. Módulo: Red de Gas --- */
 .service-card--gas { border-top-color: #1a365d; } /* Color azul corporativo para mantener la armonía */
 .service-card--gas .service-card__link { color: #1a365d; }
 /* Fotos */
-.service-card--gas .service-card__image--1 { background-image: url('../images/gas/gas1.jpg'); }
-.service-card--gas .service-card__image--2 { background-image: url('../images/gas/gas2.jpg'); }
+.service-card--gas .service-card__image--1 { background-image: url('../images/gas/gas_antes.jpg'); }
+.service-card--gas .service-card__image--2 { background-image: url('../images/gas/gas_despues.jpg'); }
 
 /* ==========================================================================
    MODULE: FOOTER
