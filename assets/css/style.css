@@ -807,3 +807,210 @@ a {
         height: 18px;
     }
 }
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN COMPLETA (LOGO CENTRADO) - REPARACIONES JR
+   ========================================================================== */
+
+.main-header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    font-family: var(--font-main);
+}
+
+.header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Clave para posicionar la hamburguesa sin mover el logo */
+}
+
+/* Spacer para equilibrar en pantallas grandes */
+.header-spacer {
+    flex: 1;
+    display: block;
+}
+
+/* Contenedor del Logo (SIEMPRE CENTRADO) */
+.logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 2; /* Toma el espacio central */
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--color-dark);
+    margin-top: 2px;
+}
+
+/* Área de Navegación (Escritorio) */
+.main-navigation {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+/* Botón de Acción Destacado en el Menú */
+.btn-nav-cta {
+    background-color: var(--color-secondary);
+    color: var(--color-white) !important;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(255, 107, 53, 0.15);
+}
+
+.btn-nav-cta:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(15, 76, 129, 0.2);
+}
+
+/* Botón Hamburguesa (Invisible en Escritorio) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1010;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-dark);
+    margin: 5px 0;
+    transition: var(--transition-smooth);
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO MÓVIL (MENOS DE 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container {
+        display: block; /* Rompe el flex en móviles para controlar posiciones fijas */
+        text-align: center;
+        height: 100px; /* Asegura espacio para tu logo y sublogo */
+    }
+
+    .header-spacer {
+        display: none;
+    }
+
+    /* Tu Logo Box se queda intacto en el centro exacto */
+    .logo-box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Centrado absoluto perfecto en móviles */
+        width: auto;
+    }
+
+    .logo-box img {
+        max-height: 70px !important; /* Ajuste para móviles */
+    }
+
+    .logo-sub {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+    }
+
+    /* El botón de menú se posiciona a la derecha de forma independiente sin empujar el logo */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Panel de navegación lateral oculto */
+    .main-navigation {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Totalmente oculto a la derecha */
+        width: 280px;
+        height: 100vh;
+        background-color: var(--color-white);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 110px 30px 40px 30px;
+        display: block; 
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1005;
+    }
+
+    /* Estado abierto (Se desliza hasta su punto fijo a la derecha) */
+    .main-navigation.is-open {
+        right: 0; 
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 1.15rem;
+        width: 100%;
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-nav-cta {
+        text-align: center;
+        margin-top: 15px;
+        border-bottom: none;
+    }
+
+    /* Animación de la hamburguesa */
+    .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--color-secondary);
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--color-secondary);
+    }
+}

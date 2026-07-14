@@ -7,26 +7,56 @@
     <meta name="description" content="Servicio técnico especializado en reparación de calentadores, limpieza de estufas, plomería y electricidad. Asistencia rápida y garantizada.">
     
     <link rel="icon" href="assets/images/logo/logojr1.png" type="image/x-icon">
+    <!-- CSS de Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap-grid.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-   <header class="main-header">
-        <div class="header-container">
-            
-            <div class="header-spacer" aria-hidden="true"></div>
+    <header class="main-header">
+    <div class="header-container">
+        
+        <!-- Mantenemos tu espaciador para centrar o empujar el diseño original -->
+        <div class="header-spacer" aria-hidden="true"></div>
 
-            <div class="logo-box">
-                <a href="#" class="logo-main">
+        <!-- Tu Logo Box original (intacto) -->
+        <div class="logo-box">
+            <a href="#" class="logo-main" aria-label="JR Reparaciones - Inicio">
                 <img src="assets/images/logo/logojr1.png" alt="JR" style="max-height: 90px !important; width: auto; display: block;">
-                </a>
+            </a>
             <span class="logo-sub">REPARACIONES</span>
-            </div>
-            
         </div>
-    </header>
+
+        <!-- Botón de Menú Hamburguesa (Solo se activa en móviles) -->
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Abrir menú de navegación">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+
+        <!-- Tu nueva navegación accesible -->
+        <nav class="main-navigation" id="main-navigation" aria-label="Navegación principal">
+            <ul class="nav-list">
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#cobertura" class="nav-link">Cobertura</a></li>
+                <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                <li>
+                <a href="https://wa.me/573207542635?text=Hola,%20necesito%20solicitar%20un%20servicio%20técnico%20para%20un%20calentador" 
+                class="nav-link btn-nav-cta" 
+                target="_blank" 
+                rel="noopener">
+                Solicitar Técnico
+                </a>
+                </li>
+            </ul>
+        </nav>
+        
+    </div>
+</header>
+
+  
 
     <main>
         <section class="hero">
@@ -149,7 +179,7 @@
         <!-- ==========================================================================
              SECCIÓN: MAPA DE COBERTURA (ZONA SUR Y OCCIDENTE)
              ========================================================================= -->
-        <section class="coverage-section">
+        <section class="coverage-section" id="cobertura">
             <div class="container-coverage">
                 <div class="coverage-header">
                     <h2>Nuestra Zona de Cobertura Inmediata</h2>
@@ -200,7 +230,7 @@
      <!-- ==========================================================================
              SECCIÓN: OPINIONES DE CLIENTES (TESTIMONIOS DE GOOGLE)
              ========================================================================== -->
-        <section class="reviews-section">
+        <section class="reviews-section" id="testimonios">
             <div class="container-reviews">
                 <h2>Opiniones de Nuestros Clientes en Google</h2>
                 <p class="reviews-subtitle">La honestidad y la puntualidad son nuestra mejor carta de presentación.</p>
@@ -235,9 +265,79 @@
     <!-- El resto de tu código original sigue acá abajo -->
         </main>
 
-            <footer class="main-footer">
-                <p>&copy; 2026: Reparaciones JR. Todos los derechos reservados.</p>
-            </footer>
+        <!-- FOOTER SERIO Y PROFESIONAL -->
+<footer class="main-footer">
+    <div class="footer-container">
+        
+        <!-- Columna 1: Identidad -->
+        <div class="footer-col brand-col">
+            <div class="footer-logo">
+                <span class="logo-highlight">JR</span> REPARACIONES
+            </div>
+            <p class="footer-text">
+                Servicio técnico profesional de instalación, mantenimiento y reparación de calentadores de paso, acumulación y redes de gas. Soluciones seguras, garantizadas y con técnicos certificados.
+            </p>
+        </div>
+
+        <!-- Columna 2: Enlaces Rápidos -->
+        <div class="footer-col links-col">
+            <h6 class="footer-title">Navegación</h6>
+            <ul class="footer-links">
+                <li><a href="#servicios">Nuestros Servicios</a></li>
+                <li><a href="#contacto">Solicitar Técnico</a></li>
+                <li><a href="#cobertura">Zonas de Cobertura</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Contacto Directo -->
+        <div class="footer-col contact-col">
+            <h6 class="footer-title">Atención Inmediata</h6>
+            <ul class="footer-contact-info">
+                <li>📍 Sabaneta y el sur de Medellín</li>
+                <li>📞 <a href="tel:+573207542635" class="contact-highlight">320 754 2635</a></li>
+                <li>⏰ Lunes a Sábado / Atención de Urgencias</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <hr class="footer-divider">
+
+    <!-- Fila de cierre -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 JR REPARACIONES. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNavigation = document.querySelector('.main-navigation');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const toggleMenu = () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mainNavigation.classList.toggle('is-open');
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNavigation.classList.contains('is-open')) {
+                    toggleMenu();
+                }
+            });
+        });
+    });
+</script>
+
+       
+
+       
+
+            
 
     <a href="https://wa.me/573207542635?text=Hola,%20vengo%20de%20la%20página%20web%20y%20necesito%20una%20cotización" class="whatsapp-floating" target="_blank" rel="noopener noreferrer" aria-label="Chat en WhatsApp">
         <span class="whatsapp-tooltip">¿Muy helada el agua? Lo arreglamos</span>
