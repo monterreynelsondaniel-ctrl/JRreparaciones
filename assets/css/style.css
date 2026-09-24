@@ -1014,3 +1014,235 @@ a {
         background-color: var(--color-secondary);
     }
 }
+
+/* ==========================================================================
+   MEJORA VISUAL DE TARJETAS DE SERVICIOS
+   ========================================================================== */
+
+.services-section__header {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    color: var(--color-secondary);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.services-section__header h2 {
+    margin-bottom: 0.75rem;
+}
+
+.services-section__header p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+/* Base visual de cada tarjeta */
+.service-card {
+    position: relative;
+    border-radius: 16px;
+    border-top-width: 5px;
+    transition:
+        transform 0.25s ease-in-out,
+        box-shadow 0.25s ease-in-out,
+        border-color 0.25s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 30px rgba(15, 23, 42, 0.14);
+}
+
+/* Etiqueta superior */
+.service-card__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
+    max-width: calc(100% - 2rem);
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(15, 76, 129, 0.95);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Colores de etiquetas por servicio */
+.service-card--calentadores .service-card__badge {
+    background-color: var(--color-calentadores);
+}
+
+.service-card--gas .service-card__badge {
+    background-color: #1a365d;
+}
+
+.service-card--estufas .service-card__badge {
+    background-color: var(--color-estufas);
+}
+
+.service-card--plomeria .service-card__badge {
+    background-color: var(--color-plomeria);
+}
+
+.service-card--electricidad .service-card__badge {
+    background-color: #956500;
+}
+
+/* Categoría pequeña sobre el título */
+.service-card__category {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Imágenes */
+.service-card__images-container {
+    position: relative;
+}
+
+.service-card__image {
+    position: relative;
+}
+
+.service-card__image::after {
+    position: absolute;
+    bottom: 0.75rem;
+    z-index: 2;
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.68);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.service-card__image--1::after {
+    content: "Antes";
+    left: 0.75rem;
+}
+
+.service-card__image--2::after {
+    content: "Después";
+    right: 0.75rem;
+}
+
+
+
+/* Tarjeta principal */
+.service-card--featured {
+    border-top-width: 7px;
+    box-shadow: 0 10px 24px rgba(214, 40, 40, 0.14);
+}
+
+.service-card--featured .service-card__content {
+    padding: 1.7rem;
+}
+
+/* Mantener botones alineados */
+.service-card__content {
+    min-height: 230px;
+}
+
+.service-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: auto;
+}
+
+.service-card:hover .service-card__link {
+    transform: translateX(5px);
+}
+
+/* Foco visible para teclado */
+.service-card__link:focus-visible,
+.nav-link:focus-visible,
+.btn-cta:focus-visible,
+.whatsapp-floating:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 4px;
+}
+
+/* Composición equilibrada para escritorio */
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(6, 1fr);
+        align-items: stretch;
+    }
+
+    .service-card {
+        grid-column: span 2;
+    }
+
+    .service-card--featured {
+        grid-column: span 3;
+    }
+
+    .service-card:nth-child(4) {
+        grid-column: 2 / span 2;
+    }
+
+    .service-card:nth-child(5) {
+        grid-column: 4 / span 2;
+    }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 767px) {
+    .services-section__header {
+        text-align: center;
+    }
+
+    .services-section__header p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+
+    .services-section__header p {
+        margin-left: 0;
+    }
+
+    .service-card__badge {
+        top: 0.75rem;
+        left: 0.75rem;
+        font-size: 0.65rem;
+    }
+
+    .service-card__content,
+    .service-card--featured .service-card__content {
+        min-height: 0;
+        padding: 1.25rem;
+    }
+
+
+/* Respeto a usuarios que reducen las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
