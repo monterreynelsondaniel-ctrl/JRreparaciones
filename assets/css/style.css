@@ -1445,6 +1445,21 @@ a {
 }
 
 /* El mensaje del botón flotante aparece después de comenzar el scroll */
+.whatsapp-floating {
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px) scale(0.9) !important;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease !important;
+}
+
+.whatsapp-floating.is-revealed {
+    opacity: 1 !important;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1) !important;
+}
+
 .whatsapp-tooltip {
     opacity: 0;
     transform: translateY(8px);
